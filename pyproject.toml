@@ -1,0 +1,13 @@
+[build-system]
+requires=["setuptools>=68"]
+build-backend="setuptools.build_meta"
+[project]
+name="headline-harvest"
+version="0.1.0"
+description="A polite headline scraper with JSON and CSV export"
+requires-python=">=3.10"
+[project.scripts]
+headline-harvest="headline_harvest.cli:main"
+[tool.setuptools.packages.find]
+where=["src"]
+
