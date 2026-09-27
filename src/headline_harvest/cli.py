@@ -29,7 +29,7 @@ def main(argv: list[str] | None=None) -> int:
     if args.limit<1: parser.error("limit must be positive")
     logging.basicConfig(level=logging.INFO,format="%(levelname)s: %(message)s")
     try: items=parse_headlines(fetch(args.url),args.url)[:args.limit]; export(items,args.output)
-    except (URLError,ValueError) as exc: logging.error("%s",exc); return 1
+    except (OSError,ValueError) as exc: logging.error("%s",exc); return 1
     print(f"Saved {len(items)} headlines to {args.output}"); return 0
 
 if __name__=="__main__": raise SystemExit(main())
